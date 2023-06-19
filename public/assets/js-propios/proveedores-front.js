@@ -30,7 +30,7 @@ function generaBotones(id){
     botones += '<i class="fas fa-edit"></i>'
     botones += '</button>'
     botones += '<button type="button" class="btn btn-outline-danger" style="display: inline-block;" data-toggle="modal" onclick="identificaEliminar(' + id + ');" data-target="#modal-eliminar-proveedor">'
-    botones += '<i class="fas fa-edit"></i>'
+    botones += '<i class="fas fa-trash"></i>'
     botones += '</button>'
     botones += '</div>'
     return botones;
