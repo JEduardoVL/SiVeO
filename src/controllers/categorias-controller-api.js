@@ -44,7 +44,6 @@ categoriasAPI.getCategoriaPorId = async (req=request,res,next)=>{
                 categoria: rows
             })
         }
-        res.json(resultado);
     } catch (error) {
         next(error)
         

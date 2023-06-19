@@ -60,21 +60,9 @@ function borrarCliente() {
     data: {},
     success: function(result) {
       if (result.estado == 1) {
-        // Eliminar las facturas relacionadas
-        $.ajax({
-          method: "DELETE",
-          url: window.location.origin + "/api/facturas/cliente/" + idSeleccionadoParaEliminar,
-          data: {},
-          success: function(resultFacturas) {
-            if (resultFacturas.estado == 1) {
-              let tabla = $('#tabla-clientes').DataTable();
+        let tabla = $('#tabla-clientes').DataTable();
               tabla.row('#renglon_' + idSeleccionadoParaEliminar).remove().draw();
               alert(resultFacturas.mensaje);
-            } else {
-              alert(resultFacturas.mensaje);
-            }
-          }
-        });
       } else {
         alert(result.mensaje);
       }

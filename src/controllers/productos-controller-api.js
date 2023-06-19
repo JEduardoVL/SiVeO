@@ -52,7 +52,7 @@ productosAPI.deleteProductoPorId = async (req = request, res, next) => {
     try {
       const { id } = req.params;
       const conexion = await miConexion();
-      const resultado = await conexion.query('DELETE ventas, productos FROM ventas INNER JOIN productos ON ventas.producto_id = productos.id WHERE productos.id = ? AND ventas.id = ?', [id,id]);
+      const resultado = await conexion.query('DELETE FROM productos WHERE id = ?', [id]);
       if (resultado[0].affectedRows > 0) {
         res.status(200).json({
           estado: 1,

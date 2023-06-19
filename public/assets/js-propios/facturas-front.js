@@ -33,7 +33,7 @@ function getFacturas() {
         const facturas = result.facturas;
         let tabla = $('#tabla-facturas').DataTable();
         facturas.forEach(factura => {
-          let nuevoRenglon = tabla.row.add([factura.id,factura.fecha,factura.cliente_id]).node();
+          let nuevoRenglon = tabla.row.add([factura.id,factura.fecha.substring(0,10),factura.cliente_id]).node();
           $(nuevoRenglon).attr('id', 'renglon_' + factura.id)
           $(nuevoRenglon).find('td').addClass('table-td');
           tabla.draw(false);

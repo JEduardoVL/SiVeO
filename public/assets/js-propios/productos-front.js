@@ -56,26 +56,18 @@ function getProductos() {
 }
 
 function borrarProducto() {
+  alert(idSeleccionadoParaEliminar)
+
   $.ajax({
     method: "DELETE",
     url: window.location.origin + "/api/productos/" + idSeleccionadoParaEliminar,
     data: {},
     success: function(result) {
       if (result.estado == 1) {
-        $.ajax({
-          method: "DELETE",
-          url: window.location.origin + "/api/ventas/cliente/" + idSeleccionadoParaEliminar,
-          data: {},
-          success: function(resultVentas) {
-            if (resultVentas.estado == 1) {
-              let tabla = $('#tabla-productos').DataTable();
+        alert(idSeleccionadoParaEliminar)
+        let tabla = $('#tabla-productos').DataTable();
               tabla.row('#renglon_' + idSeleccionadoParaEliminar).remove().draw();
-              alert(resultVentas.mensaje);
-            } else {
-              alert(resultVentas.mensaje);
-            }
-          }
-        });
+              alert(resultVentas.mensaje);;
       } else {
         alert(result.mensaje);
       }
@@ -106,9 +98,9 @@ function identificaActualizar(id) {
       if (result.estado == 1) {
         let producto = result.producto;
         document.getElementById('DescripcionProductoModi').value = producto.descripcion;
-        document.getElementById('ProveedorIDProdModi').value = prodcuto.proveedor_id;
-        document.getElementById('CategoriaIDProdModi').value = prodcuto.categoria_id;
-        document.getElementById('PrecioProdModi').value = prodcuto.precio;
+        document.getElementById('ProveedorIDProdModi').value = producto.proveedor_id;
+        document.getElementById('CategoriaIDProdModi').value = producto.categoria_id;
+        document.getElementById('PrecioProdModi').value = producto.precio;
       } else {
         alert(result.mensaje);
       }
