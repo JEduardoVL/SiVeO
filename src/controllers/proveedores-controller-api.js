@@ -48,7 +48,6 @@ proveedoresAPI.getById = async (req, res, next) => {
     }
 }
 
-//Para usar el delate es necesario eliminar mediante la api 
 proveedoresAPI.deleteById = async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -72,8 +71,8 @@ proveedoresAPI.deleteById = async (req, res, next) => {
 
 proveedoresAPI.postNew = async (req, res, next) => {
     try{
-        const { nombre, direccion, telefono } = req.body;
-        if(nombre == undefined || direccion == undefined || telefono == undefined){
+        const { pass, nombre, direccion, telefono } = req.body;
+        if(nombre == undefined || direccion == undefined || telefono == undefined || pass == undefined){
             res.status(400).json({
                 estado: 0,
                 mensaje: "Bad request, parameters missing"
@@ -82,7 +81,7 @@ proveedoresAPI.postNew = async (req, res, next) => {
         } 
 
         const conexion = await miConexion();
-        const resultado = await conexion.query('INSERT INTO proveedores (nombre, direccion, telefono) values (?, ?, ?)', [ nombre, direccion, telefono ])
+        const resultado = await conexion.query('INSERT INTO proveedores (pass, nombre, direccion, telefono) values (?, ?, ?, ?)', [pass, nombre, direccion, telefono ])
         if(resultado[0].affectedRows==0){
             res.status(500).json({
                 estado: 0,
@@ -92,8 +91,8 @@ proveedoresAPI.postNew = async (req, res, next) => {
         }
         res.status(201).json({
             estado: 1,
-            mensaje: "proveedor Creada",
-            categoria: {
+            mensaje: "proveedor creado",
+            proveedor: {
                 id: resultado[0].insertId,
                 nombre: nombre,
                 direccion: direccion,
@@ -108,9 +107,8 @@ proveedoresAPI.postNew = async (req, res, next) => {
 proveedoresAPI.putById = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { nombre, direccion, telefono } = req.body;
-
-        if(nombre == undefined || direccion == undefined || telefono == undefined){
+        const { pass, nombre, direccion, telefono } = req.body;
+        if(nombre == undefined || direccion == undefined || telefono == undefined || pass == undefined){
             res.status(400).json({
                 estado: 0,
                 mensaje: 'Bad request, parameters missing'
@@ -119,7 +117,7 @@ proveedoresAPI.putById = async (req, res, next) => {
         }
 
         const conexion = await miConexion();
-        const resultado = await conexion.query('UPDATE proveedores SET nombre = ?, direccion = ?, telefono = ? WHERE id = ?', [ nombre, direccion, telefono, id ]);
+        const resultado = await conexion.query('UPDATE proveedores SET nombre = ?, pass = ?, direccion = ?, telefono = ? WHERE id = ?', [ nombre, pass, direccion, telefono, id ]);
         if(resultado[0].afectedRows==0){
             res.status(404).json({
                 estado: 0,

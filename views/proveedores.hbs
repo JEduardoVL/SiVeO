@@ -69,40 +69,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Nombre 1</td>
-                      <td> XXXX - XXXX - XX </td> 
-                      <td>Dirección 1</td>
-                      <td> 
-                          <div style="display: flex; justify-content: center;">
-                            <button type="button" class="btn  btn-outline-primary" style="display: inline-block;" data-toggle="modal" data-target="#modal-Modificar-Proveedor">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger" style="display: inline-block;" data-toggle="modal" data-target="#modal-eliminar-proveedor">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                          </div>
-                      </td>
-     
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Nombre 2</td>
-                      <td> XXXX - XXXX - XX </td>
-                      <td>Dirección 2 </td>
-                      <td> 
-                          <div style="display: flex; justify-content: center;">
-                            <button type="button" class="btn  btn-outline-primary" style="display: inline-block;"  data-toggle="modal" data-target="#modal-Modificar-Proveedor">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                            <button type="button" class="btn btn-outline-danger" style="display: inline-block;" data-toggle="modal" data-target="#modal-eliminar-proveedor">
-                              <i class="fas fa-edit"></i>
-                            </button>
-                          </div>
-                      </td>
-                  
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -140,7 +106,11 @@
               <div class="p-6 space-y-4">
                   <div class="input-area">
                     <label for="name" class="form-label">Nombre Completo :</label>
-                    <input id="claveCateAlta" type="text" class="form-control" placeholder="Digite el nombre completo del proveedor">
+                    <input id="NombreProveAlta" type="text" class="form-control" placeholder="Digite el nombre completo del proveedor">
+                  </div>
+                  <div class="input-area">
+                    <label for="name" class="form-label">Contraseña :</label>
+                    <input id="passProveAlta" type="text" class="form-control" placeholder="Digite la contraseña del proveedor">
                   </div>
                   <div class="form-group">
                     <label>Contacto :</label>
@@ -148,18 +118,18 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
-                      <input type="text" class="form-control" inputmode="text" placeholder="xx-xxx-xxx-xxxx">
+                      <input id="telProveAlta" type="text" class="form-control" inputmode="text" placeholder="xx-xxx-xxx-xxxx">
                     </div>
                   </div>
                   <div class="input-area">
                     <label for="description" class="form-label">Dirección :</label>
-                    <textarea id="descripcionCateAlta" rows="5" class="form-control" placeholder="Digite la dirección"></textarea>
+                    <textarea id="direccionProveAlta" rows="5" class="form-control" placeholder="Digite la dirección"></textarea>
                   </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" onclick="crearProveedor()">Aceptar</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -182,7 +152,7 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="borrarProveedor()">Eliminar</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -205,7 +175,11 @@
               <div class="p-6 space-y-4">
                   <div class="input-area">
                     <label for="name" class="form-label">Nombre Completo :</label>
-                    <input id="claveCateAlta" type="text" class="form-control" >
+                    <input id="nombreProveModi" type="text" class="form-control" >
+                  </div>
+                  <div class="input-area">
+                    <label for="name" class="form-label">Contraseña :</label>
+                    <input id="passProveModi" type="text" class="form-control" placeholder="Digite la contraseña del proveedor">
                   </div>
                   <div class="form-group">
                     <label>Contacto :</label>
@@ -213,18 +187,18 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                       </div>
-                      <input type="text" class="form-control" inputmode="text" >
+                      <input id="telProveModi" type="text" class="form-control" inputmode="text" >
                     </div>
                   </div>
                   <div class="input-area">
                     <label for="description" class="form-label">Dirección :</label>
-                    <textarea id="descripcionCateAlta" rows="5" class="form-control" ></textarea>
+                    <textarea id="direccionProveModi" rows="5" class="form-control" ></textarea>
                   </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="actualizarProveedor()">Guardar</button>
             </div>
           </div>
           <!-- /.modal-content -->
