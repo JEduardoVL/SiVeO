@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiVeO | Proveedores</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+<!-- Barra superior-->
+{{>'barra_sup'}}
+
+<!-- Menú-->
+{{>'menu'}}
+<!-- Fin Menú-->
+
+  <!-- Content Wrapper. Contains page content -->
+
+  <div class="content-wrapper">
+
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+        <div >
+            <div class="card">
+               <div class="card-header">
+                <div style="display: flex; justify-content: space-between;">
+                  <h2 style="margin-right: auto;">Proveedores</h2>
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-Agregar-Proveedor">Agregar</button>
+  </div>
+</div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered" id="tabla-proveedores">
+                  <thead>
+                    <tr>
+                      <th >ID</th>
+                      <th>Nombre</th>
+                      <th>Contacto / Teléfono</th>
+                      <th>Dirección</th>
+                      <th >Acciones</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Nombre 1</td>
+                      <td> XXXX - XXXX - XX </td> 
+                      <td>Dirección 1</td>
+                      <td> 
+                          <div style="display: flex; justify-content: center;">
+                            <button type="button" class="btn  btn-outline-primary" style="display: inline-block;" data-toggle="modal" data-target="#modal-Modificar-Proveedor">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger" style="display: inline-block;" data-toggle="modal" data-target="#modal-eliminar-proveedor">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                          </div>
+                      </td>
+     
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Nombre 2</td>
+                      <td> XXXX - XXXX - XX </td>
+                      <td>Dirección 2 </td>
+                      <td> 
+                          <div style="display: flex; justify-content: center;">
+                            <button type="button" class="btn  btn-outline-primary" style="display: inline-block;"  data-toggle="modal" data-target="#modal-Modificar-Proveedor">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger" style="display: inline-block;" data-toggle="modal" data-target="#modal-eliminar-proveedor">
+                              <i class="fas fa-edit"></i>
+                            </button>
+                          </div>
+                      </td>
+                  
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+<!--Modals-->
+      <div class="modal fade" id="modal-Agregar-Proveedor">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #28a745; color: white;">
+              <h4 class="modal-title">Nuevo Proveedor.</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="p-6 space-y-4">
+                  <div class="input-area">
+                    <label for="name" class="form-label">Nombre Completo :</label>
+                    <input id="claveCateAlta" type="text" class="form-control" placeholder="Digite el nombre completo del proveedor">
+                  </div>
+                  <div class="form-group">
+                    <label>Contacto :</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                      <input type="text" class="form-control" inputmode="text" placeholder="xx-xxx-xxx-xxxx">
+                    </div>
+                  </div>
+                  <div class="input-area">
+                    <label for="description" class="form-label">Dirección :</label>
+                    <textarea id="descripcionCateAlta" rows="5" class="form-control" placeholder="Digite la dirección"></textarea>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+<div class="modal fade" id="modal-eliminar-proveedor">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #dc3545; color: white;">
+              <h4 class="modal-title">Eliminar Cliente.</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>¿Está seguro que desea eliminar al proveedor?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+<!--Modals-->
+      <div class="modal fade" id="modal-Modificar-Proveedor">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #1485ff; color: white;">
+              <h4 class="modal-title">Modificar Proveedor.</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" style="color: white;">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="p-6 space-y-4">
+                  <div class="input-area">
+                    <label for="name" class="form-label">Nombre Completo :</label>
+                    <input id="claveCateAlta" type="text" class="form-control" >
+                  </div>
+                  <div class="form-group">
+                    <label>Contacto :</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      </div>
+                      <input type="text" class="form-control" inputmode="text" >
+                    </div>
+                  </div>
+                  <div class="input-area">
+                    <label for="description" class="form-label">Dirección :</label>
+                    <textarea id="descripcionCateAlta" rows="5" class="form-control" ></textarea>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Guardar</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+ <!-- footer-->
+{{>'footer'}}
+<!-- Fin footer-->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<!-- Datatable library and plugins -->
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Script propio -->
+<script src="assets/js-propios/proveedores-front.js"></script>
+</body>
+</html>
